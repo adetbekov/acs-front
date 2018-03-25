@@ -13,8 +13,10 @@
     "precommit": "npm run lint"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "element-ui": "^2.2.2",
-    "nuxt": "^1.0.0"
+    "nuxt": "^1.0.0",
+    "vue-i18n": "^7.6.0"
   },
   "devDependencies": {
     "autoprefixer": "^8.2.0",

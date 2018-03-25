@@ -1,7 +1,4 @@
 module.exports = {
-    /*
-     ** Headers of the page
-     */
     head: {
         title: 'ACS',
         meta: [
@@ -18,9 +15,14 @@ module.exports = {
         'element-ui/lib/theme-chalk/index.css'
     ],
     plugins: [
-        '@/plugins/element-ui'
+        '~/plugins/element-ui',
+        '~/plugins/i18n.js'
     ],
     build: {
+        vendor: [
+            'axios',
+            'vue-i18n'
+        ],
         postcss: [
             require('postcss-nested')(),
             require('postcss-responsive-type')(),
