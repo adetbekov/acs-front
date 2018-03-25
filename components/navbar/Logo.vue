@@ -36,10 +36,10 @@
 				return this.logos[this.logo]
 			},
 			getLogoImage() {
-				return require('~/static/images/' + this.l.img)
+				return require('~/assets/images/' + this.l.img)
 			},
 			getLogoText() {
-				return require('~/static/images/' + this.l.text)
+				return require('~/assets/images/' + this.l.text)
 			},
 			getLogoAlt() {
 				return this.l.alt
