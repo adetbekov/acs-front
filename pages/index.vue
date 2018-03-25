@@ -4,12 +4,12 @@
 </template>
 
 <script>
-  import Navbar from "~/components/navbar/Navbar"
+import Navbar from "~/components/navbar/Navbar"
 
-  export default {
-    layout: 'dark',
-    components: {
-      Navbar
-    }
+export default {
+  layout: "dark",
+  components: {
+    Navbar
   }
+}
 </script>

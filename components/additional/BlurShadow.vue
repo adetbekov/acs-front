@@ -1,42 +1,52 @@
 <script>
-	import { mapGetters } from 'vuex'
+import { mapGetters } from "vuex"
 
-	export default {
-		render(h) {
-	    return h('div', {
-	      'class': [ 'blur-shadow' ],
-	      'style': this.getSize
-	    }, [
-	      h('div',{ 'class': { 'hidden': this.hideBackground }, 'style': this.getSize }, this.$slots.default),
-	      h('div',{ 'style': this.getSize }, this.$slots.default)
-	    ])
-	  },
-		data: () => ({
-			height: 0,
-			width: 0
-		}),
-		methods: {
-			resizeWindow(){
-				this.height = this.$slots.default[0].elm.clientHeight
-				this.width = this.$slots.default[0].elm.clientWidth
-			}
-		},
-		computed: {
-			getSize(){
-				return { 
-					'min-height': this.height + 'px', 
-					'min-width': this.width + 'px'
-				}
-			},
-			...mapGetters({
-				hideBackground: 'additional/isAnimating'
-			})
-		},
-		mounted() {
-			this.resizeWindow()
-			window.addEventListener('resize', () => { this.resizeWindow() })
-		}
-	}
+export default {
+  data: () => ({
+    height: 0,
+    width: 0
+  }),
+  computed: {
+    getSize() {
+      return {
+        "min-height": this.height + "px",
+        "min-width": this.width + "px"
+      }
+    },
+    ...mapGetters({
+      hideBackground: "additional/isAnimating"
+    })
+  },
+  mounted() {
+    this.resizeWindow()
+    window.addEventListener("resize", () => {
+      this.resizeWindow()
+    })
+  },
+  methods: {
+    resizeWindow() {
+      this.height = this.$slots.default[0].elm.clientHeight
+      this.width = this.$slots.default[0].elm.clientWidth
+    }
+  },
+  render(h) {
+    return h(
+      "div",
+      {
+        class: ["blur-shadow"],
+        style: this.getSize
+      },
+      [
+        h(
+          "div",
+          { class: { hidden: this.hideBackground }, style: this.getSize },
+          this.$slots.default
+        ),
+        h("div", { style: this.getSize }, this.$slots.default)
+      ]
+    )
+  }
+}
 </script>
 
 <style lang="sass" scoped>
