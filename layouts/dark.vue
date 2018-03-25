@@ -7,5 +7,5 @@
 <style lang="sass">
 	html
 		color: #ffffff
-		background-color: #181818
+		background-color: $color-background-dark
 </style>

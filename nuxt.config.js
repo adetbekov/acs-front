@@ -12,6 +12,8 @@ module.exports = {
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
   },
+  modules: ["nuxt-sass-resources-loader"],
+  sassResources: ["~/assets/styles/combine.sass"],
   css: [
     "element-ui/lib/theme-chalk/reset.css",
     "element-ui/lib/theme-chalk/index.css"
