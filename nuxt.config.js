@@ -1,6 +1,6 @@
 module.exports = {
   head: {
-    title: "ACS",
+    title: "Adetbekov Creative Studio",
     meta: [
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
@@ -12,15 +12,18 @@ module.exports = {
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
   },
-  modules: ["nuxt-sass-resources-loader"],
+  modules: [
+    "nuxt-sass-resources-loader",
+    ["nuxt-i18n", require("./i18n/config")]
+  ],
   sassResources: ["~/assets/styles/combine.sass"],
   css: [
     "element-ui/lib/theme-chalk/reset.css",
     "element-ui/lib/theme-chalk/index.css"
   ],
-  plugins: ["~/plugins/element-ui", "~/plugins/i18n.js"],
+  plugins: ["~/plugins/element-ui"],
   build: {
-    vendor: ["axios", "vue-i18n"],
+    vendor: ["axios"],
     postcss: [
       require("postcss-nested")(),
       require("postcss-responsive-type")(),
