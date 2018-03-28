@@ -1,8 +1,8 @@
 <template lang="jade">
-  div
-    el-container
-      Navbar
-    nuxt
+	div
+		el-container
+			Navbar
+		nuxt
 </template>
 
 <script>
@@ -15,9 +15,15 @@ export default {
 }
 </script>
 
-
 <style lang="sass">
 	html
 		color: #ffffff
 		background-color: $color-background-dark
+
+	#header
+		width: 100%
+		z-index: 10
+		display: flex
+		align-items: center
+		justify-content: space-between
 </style>
