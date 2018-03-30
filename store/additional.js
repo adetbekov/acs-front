@@ -7,7 +7,7 @@ export const getters = {
 }
 
 export const mutations = {
-  toggle_animation(state) {
+  TOGGLE_ANIMATION(state) {
     state.animating = !state.animating
   }
 }

@@ -14,12 +14,16 @@
     "lintfix": "eslint --fix --ext .js,.vue --ignore-path .gitignore ."
   },
   "dependencies": {
-    "axios": "^0.18.0",
-    "element-ui": "^2.2.2",
+    "@nuxtjs/axios": "^5.1.1",
+    "cookieparser": "^0.1.0",
+    "element-ui": "^2.3.2",
+    "js-cookie": "^2.2.0",
     "nuxt": "^1.4.0",
-    "nuxt-i18n": "^2.9.1"
+    "nuxt-i18n": "^2.9.1",
+    "vue-loader": "^14.2.2"
   },
   "devDependencies": {
+    "@kazupon/vue-i18n-loader": "^0.3.0",
     "autoprefixer": "^8.2.0",
     "babel-eslint": "^8.2.2",
     "eslint": "^4.19.1",

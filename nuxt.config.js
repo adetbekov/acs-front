@@ -12,7 +12,13 @@ module.exports = {
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
   },
+  loading: {
+    name: "circle",
+    color: "#3B8070",
+    background: "white"
+  },
   modules: [
+    "@nuxtjs/axios",
     "nuxt-sass-resources-loader",
     ["nuxt-i18n", require("./i18n/config")]
   ],
@@ -21,9 +27,17 @@ module.exports = {
     "element-ui/lib/theme-chalk/reset.css",
     "element-ui/lib/theme-chalk/index.css"
   ],
-  plugins: ["~/plugins/element-ui"],
+  plugins: [
+    "~/plugins/element-ui",
+    "~/plugins/axios",
+    { src: "~/plugins/nuxt-client-init.js", ssr: false }
+  ],
+  axios: {
+    host: "localhost",
+    prefix: "/api/",
+    port: "8000"
+  },
   build: {
-    vendor: ["axios"],
     postcss: [
       require("postcss-nested")(),
       require("postcss-responsive-type")(),
@@ -37,6 +51,13 @@ module.exports = {
           test: /\.(js|vue)$/,
           loader: "eslint-loader",
           exclude: /(node_modules)/
+        })
+        config.module.rules.push({
+          enforce: "pre",
+          test: /\.i18n$/,
+          loader: `@kazupon/vue-i18n-loader?${JSON.stringify({
+            includePaths: [require("path").resolve(__dirname), "node_modules"]
+          })}`
         })
       }
     }

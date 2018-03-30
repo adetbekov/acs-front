@@ -1,8 +1,8 @@
 <template lang="jade">
-	BlurShadow
-		.logo
-			img(:src="getLogoImage", :alt="getLogoAlt", :height="getLogoHeight")
-			img(:src="getLogoText", :alt="getLogoAlt+'-text'", :height="getLogoHeight", class="hidden-xs-only")
+  BlurShadow
+    .logo
+      img(:src="getLogoImage", :alt="getLogoAlt", :height="getLogoHeight")
+      img(:src="getLogoText", :alt="getLogoAlt+'-text'", :height="getLogoHeight", class="hidden-xs-only")
 </template>
 
 <script>
