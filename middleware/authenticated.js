@@ -1,11 +1,11 @@
-export default function({ app, store, redirect, next }) {
+export default function({ app, store, redirect }) {
   if (!store.getters["auth/isAuthenticated"]) {
     return redirect("/login")
   }
-  if (store.getters("auth/getExpirationTime") - new Date() <= 432000) {
+  if (store.getters["auth/getExpirationTime"] - new Date() <= 432000) {
     app.$axios
       .post("auth/reload", {
-        token: store.getters("auth/getToken")
+        token: store.getters["auth/getToken"]
       })
       .then(
         response => {
@@ -17,10 +17,4 @@ export default function({ app, store, redirect, next }) {
         }
       )
   }
-  next(response => {
-    if (response.status == 401 || response.status == 403) {
-      store.dispatch("auth/remove")
-      location.reload()
-    }
-  })
 }

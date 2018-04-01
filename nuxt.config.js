@@ -20,8 +20,21 @@ module.exports = {
   modules: [
     "@nuxtjs/axios",
     "nuxt-sass-resources-loader",
-    ["nuxt-i18n", require("./i18n/config")]
+    ["nuxt-i18n", require("./i18n/config")],
+    [
+      "nuxt-fontawesome",
+      {
+        component: "fa"
+      }
+    ]
   ],
+  fontawesome: {
+    imports: [
+      {
+        set: "@fortawesome/fontawesome-free-solid"
+      }
+    ]
+  },
   sassResources: ["~/assets/styles/combine.sass"],
   css: [
     "element-ui/lib/theme-chalk/reset.css",
