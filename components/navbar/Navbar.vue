@@ -7,7 +7,8 @@
       slot(name="center")
     .right
       slot(name="right")
-      fa(icon="bars")
+      //- fa(name="search" scale="0.9")
+      //- fa(name="bars")
 </template>
 
 <script>
@@ -34,20 +35,20 @@ export default {
     align-items: center
     transition: all 0.2s ease-in-out
 
-  .right > *
-    padding: 0 0 0 15px
+  .right 
+    *
+      padding: 5px 0 5px 20px
   
   .left > *
-    padding: 0 15px 0 0
+    padding: 5px 20px 5px 0
+
+  .center
+    position: absolute
+    left: 50%
   
-  &[color="dark"]
-     *, a
-      color: $color-text-dark
-  
-  &[color="light"]
-     *, a
-      color: $color-background-gray
+  *, a
+    color: $color-text-gray
 
   a:hover
-    color: #3498db
+    color: $color-text-primary-hover
 </style>

@@ -1,19 +1,22 @@
 <template lang="jade">
 div
 	el-container
-		Navbar(color="dark")
-			Locale(slot="right")
+		Navbar
+			Logo(slot="left", logo="webcampus")
+			p(slot="center") Center
 		nuxt
 </template>
 
 <script>
 import Navbar from "~/components/navbar/Navbar"
 import Locale from "~/components/navbar/Locale"
+import Logo from "~/components/navbar/Logo"
 
 export default {
   components: {
     Navbar,
-    Locale
+    Locale,
+    Logo
   }
 }
 </script>

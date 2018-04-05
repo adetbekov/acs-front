@@ -7,7 +7,7 @@ export const state = () => ({
 })
 
 export const actions = {
-  set: ({ commit, isClient, app }, token) => {
+  set: ({ commit }, token) => {
     let now = new Date()
     let auth = {
       token: token,
@@ -15,7 +15,6 @@ export const actions = {
     }
     Cookie.set("auth", auth)
     commit("UPDATE", auth)
-    if (isClient && token) app.$axios.setToken(token, "JWT")
   },
   remove: ({ commit }) => {
     commit("REMOVE")

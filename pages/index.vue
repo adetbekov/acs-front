@@ -1,4 +1,4 @@
-<i18n lang="i18n">
+<i18n>
 {
 	"en": {
 		"hello": "hello world!"
@@ -15,7 +15,7 @@
 <template lang="jade">
 	el-container
 		el-main
-			h1 heey
+			h1 {{ $t("hello") }}
 </template>
 
 <script>
