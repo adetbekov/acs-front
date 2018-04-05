@@ -1,3 +1,5 @@
+const nodeExternals = require("webpack-node-externals")
+
 module.exports = {
   head: {
     title: "Adetbekov Creative Studio",
@@ -41,7 +43,7 @@ module.exports = {
       require("postcss-hexrgba")(),
       require("autoprefixer")()
     ],
-    extend(config, { isDev, isClient }) {
+    extend(config, { isDev, isClient, isServer }) {
       if (isDev && isClient) {
         config.module.rules.push({
           enforce: "pre",
@@ -49,10 +51,22 @@ module.exports = {
           loader: "eslint-loader",
           exclude: /(node_modules)/
         })
-        config.module.rules.find(
-          el => el.loader === "vue-loader"
-        ).options.loaders.i18n =
-          "@kazupon/vue-i18n-loader"
+        // config.module.rules.find(
+        //   el => el.loader === "vue-loader"
+        // ).options.loaders.i18n =
+        //   "@kazupon/vue-i18n-loader"
+      }
+      if (isServer) {
+        config.externals = [
+          nodeExternals({
+            // default value for `whitelist` is
+            // [/es6-promise|\.(?!(?:js|json)$).{1,5}$/i]
+            whitelist: [
+              /es6-promise|\.(?!(?:js|json)$).{1,5}$/i,
+              /^vue-awesome/
+            ]
+          })
+        ]
       }
     }
   }

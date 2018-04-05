@@ -7,8 +7,8 @@
       slot(name="center")
     .right
       slot(name="right")
-      //- fa(name="search" scale="0.9")
-      //- fa(name="bars")
+      fa(name="search" scale="0.9")
+      fa(name="bars")
 </template>
 
 <script>
