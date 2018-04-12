@@ -14,6 +14,7 @@ module.exports = {
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
   },
+  loading: false,
   modules: [
     "@nuxtjs/axios",
     "nuxt-sass-resources-loader",
@@ -51,16 +52,16 @@ module.exports = {
           loader: "eslint-loader",
           exclude: /(node_modules)/
         })
-        // config.module.rules.find(
-        //   el => el.loader === "vue-loader"
-        // ).options.loaders.i18n =
-        //   "@kazupon/vue-i18n-loader"
       }
+
+      // config.module.rules.find(
+      //   el => el.loader === "vue-loader"
+      // ).options.loaders.i18n =
+      //   "@kazupon/vue-i18n-loader"
+
       if (isServer) {
         config.externals = [
           nodeExternals({
-            // default value for `whitelist` is
-            // [/es6-promise|\.(?!(?:js|json)$).{1,5}$/i]
             whitelist: [
               /es6-promise|\.(?!(?:js|json)$).{1,5}$/i,
               /^vue-awesome/
