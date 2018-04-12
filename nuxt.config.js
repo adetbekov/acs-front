@@ -54,10 +54,10 @@ module.exports = {
         })
       }
 
-      // config.module.rules.find(
-      //   el => el.loader === "vue-loader"
-      // ).options.loaders.i18n =
-      //   "@kazupon/vue-i18n-loader"
+      config.module.rules.find(
+        el => el.loader === "vue-loader"
+      ).options.loaders.i18n =
+        "@kazupon/vue-i18n-loader"
 
       if (isServer) {
         config.externals = [

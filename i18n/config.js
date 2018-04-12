@@ -23,6 +23,7 @@ module.exports = {
   redirectCookieKey: "redirected",
   vueI18n: {
     fallbackLocale: "en",
+    silentTranslationWarn: true,
     messages: {
       en: {
         welcome: "Welcome"
