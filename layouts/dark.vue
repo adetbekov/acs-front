@@ -1,9 +1,9 @@
 <template lang="jade">
 div
-	el-container
-		Navbar(color="light")
-			Locale(slot="right")
-		nuxt
+  el-container
+    Navbar(color="light")
+      Locale(slot="right")
+  nuxt
 </template>
 
 <script>

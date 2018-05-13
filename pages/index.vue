@@ -1,7 +1,7 @@
 <i18n>
 {
 	"en": {
-		"hello": "hello world!"
+		"hello": "Hello world!"
 	},
 	"ru": {
 		"hello": "Привет мир!"
@@ -13,9 +13,9 @@
 </i18n>
 
 <template lang="jade">
-	el-container
-		el-main
-			h1 {{ $t("hello") }}
+  el-container
+    el-main
+      h1 {{ $t("hello") }}
 </template>
 
 <script>

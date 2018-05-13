@@ -4,7 +4,7 @@ div
 		Navbar
 			Logo(slot="left", logo="webcampus")
 			p(slot="center") Center
-		nuxt
+	nuxt
 </template>
 
 <script>

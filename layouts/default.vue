@@ -3,7 +3,7 @@ div
 	el-container
 		Navbar(color="dark")
 			Locale(slot="right")
-		nuxt
+	nuxt
 </template>
 
 <script>

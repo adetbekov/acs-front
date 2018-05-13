@@ -1,8 +1,8 @@
 <template lang="jade">
-	div
-		el-container
-			Navbar
-		nuxt
+  div
+    el-container
+      Navbar
+    nuxt
 </template>
 
 <script>
