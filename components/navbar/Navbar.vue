@@ -29,6 +29,7 @@ export default {
   align-items: center
   justify-content: space-between
   font-size: 16px
+  position: relative
 
   *
     display: flex

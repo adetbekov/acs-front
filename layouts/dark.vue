@@ -1,9 +1,9 @@
 <template lang="jade">
 div
-  el-container
-    Navbar(color="light")
-      Locale(slot="right")
-  nuxt
+	el-container
+		Navbar(color="dark")
+			Locale(slot="right")
+	nuxt
 </template>
 
 <script>
@@ -19,7 +19,9 @@ export default {
 </script>
 
 <style lang="sass">
-	html
-		color: #ffffff
-		background-color: $color-background-dark
+html 
+  background-color: $color-background-dark
+
+h1, h2, h3, h4, h5, h6, p, span, li, a
+  color: $color-text-white
 </style>
