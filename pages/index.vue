@@ -6,7 +6,7 @@
 	},
 	"ru": {
     "hello": "Салют",
-    "description": "Я - Елдос, Fullstack веб-разработчик из Алматы. Ищу красоту во всём, в коде, анимации, интерактивности и генеративном дизайне. Что ж, добро пожаловать в Adetbekov Creative Studio!"
+    "description": "Я - Елдос, <TextExpand short='Fullstack'>Full Stack веб-разработчик – это квалифицированный специалист, который способен принимать активное участие во всех этапах разработки веб-приложений, начиная от серверной логики и ее реализации с помощью различных технологий и фреймворков, и заканчивая клиентским кодом, работающим непосредственно в браузере.</TextExpand> веб-разработчик из Алматы. Ищу красоту во всём, в коде, анимации, интерактивности и генеративном дизайне. Что ж, добро пожаловать в Adetbekov Creative Studio!"
 	},
 	"kz": {
     "hello": "Iyä",
@@ -21,24 +21,27 @@
       el-row
         el-col(:span="12", :offset="6", :xs="{span: 24, offset: 0}")
           h1 {{ $t("hello") }}
-          p {{ $t("description") }}
-      el-row
-        el-col(:span="12", :offset="6")
-          h1 {{ $t("hello") }}
-          p {{ $t("description") }}   
+          p
+            no-ssr(:placeholder="$t('description')")
+              Dynamic(:template="$t('description')")
 </template>
 
 <script>
+import Dynamic from "~/components/additional/Dynamic"
+
 export default {
-  layout: "dark"
+  layout: "dark",
+  components: {
+    Dynamic
+  }
 }
 </script>
 
-<style lang="sass">
+<style lang="sass" scoped>
 @import url('https://fonts.googleapis.com/css?family=Roboto+Mono')
 
 .main
-  height: calc( 100vh - 60px - 16px )
+  min-height: calc( 100vh - 60px - 16px )
   display: flex
   flex-direction: column
   justify-content: space-around

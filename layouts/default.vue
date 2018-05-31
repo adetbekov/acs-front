@@ -1,5 +1,5 @@
 <template lang="jade">
-div
+.default-layout
 	el-container
 		Navbar(color="dark")
 			Locale(slot="right")
@@ -19,7 +19,9 @@ export default {
 </script>
 
 <style lang="sass">
-	html
-		color: $color-text-dark
-		background-color: $color-background-gray
+.default-layout
+  color: $color-text-dark
+  background-color: $color-background-gray
+    
+  padding: 8px
 </style>
