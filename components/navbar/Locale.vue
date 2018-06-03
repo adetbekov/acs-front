@@ -4,7 +4,7 @@
       v-if="locale.code !== $i18n.locale",
       :key="index",
       :exact="true",
-      :to="switchLocalePath(locale.code)") {{ locale.code }}
+      :to="switchLocalePath(locale.code)") {{ locale.name }}
 </template>
 
 <style lang="sass" scoped>

@@ -1,9 +1,39 @@
+<i18n>
+{
+  "en": {
+    "dashboard": "Dashboard",
+    "store": "Course store",
+    "purchased": "My courses"
+  },
+  "ru": {
+    "dashboard": "Основная",
+    "store": "Магазин курсов",
+    "purchased": "Мои курсы"
+  },
+  "kz": {
+    "dashboard": "Bastı bet",
+    "store": "Düken",
+    "purchased": "Satıp alıngan"
+  }
+}
+</i18n>
+
 <template lang="jade">
 .store-layout
-	el-container
-		Navbar
-			Logo(slot="left", logo="webcampus")
-	nuxt
+  el-container
+    Navbar
+      Logo(slot="left", logo="webcampus")
+      .menu(slot="center")
+        nuxt-link(to="dashboard") 
+          fa(name="dashboard", scale="1.2")
+          small {{ $t("dashboard") }}
+        nuxt-link(to="")
+          fa(name="store", scale="1.2")
+          small {{ $t("store") }}
+        nuxt-link(to="purchased")
+          fa(name="purchased", scale="1.2")
+          small {{ $t("purchased") }}
+  nuxt
 </template>
 
 <script>
@@ -27,24 +57,25 @@ export default {
   height: 100%
   padding: 8px
 
-  // <ul style="position: relative; left: -50%;" v-if="$route.path.split('/')[1] == 'webcampus'" class="list-unstyled d-flex align-items-center text-gray m-0 p-0 hidden-sm-down">
-  //       <li class="pr-2">
-  //         <router-link :to="{ name: 'dashboard' }" class="d-flex flex-column align-items-center" :class="{ 'active': $route.name == 'dashboard'}">
-  //           <icon name="dashboard" scale="1.2"></icon>
-  //           <small style='line-height:0.8'><span class="small">Основная</span></small>
-  //         </router-link>
-  //       </li>
-  //       <li class="px-3">
-  //       <router-link :to="{ name: 'webcampus' }" class="d-flex flex-column align-items-center" :class="{ 'active': $route.name == 'webcampus'}">
-  //           <icon name="store" scale="1.2"></icon>
-  //           <small style='line-height:0.8'><span class="small">Магазин курсов</span></small>
-  //         </router-link>
-  //     </li>
-  //     <li class="pl-2">
-  //         <router-link :to="{ name: 'webcampus' }" class="d-flex flex-column align-items-center" :class="{ 'active': $route.name == 'purchased'}">
-  //           <icon name="purchased" scale="1.2"></icon>
-  //           <small style='line-height:0.8'><span class="small">Мои курсы</span></small>
-  //         </router-link>
-  //       </li>
-  //     </ul>
+  .menu 
+    margin: 0
+    padding: 0
+    display: flex
+    align-items: center
+
+    a
+      padding: 0 12px
+      display: flex
+      flex-direction: column
+      align-items: center
+
+      &:hover *
+        color: $color-text-primary-hover!important
+
+    small
+      font-size: 68%
+      
+  .nuxt-link-active *
+    color: $color-text-primary-hover!important
+
 </style>

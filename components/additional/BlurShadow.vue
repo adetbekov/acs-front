@@ -50,22 +50,21 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-	.blur-shadow 
-		display: block
-		position: relative
+  .blur-shadow 
+    display: block
+    position: relative
 
-		div 
-			position: absolute
-
-		div:nth-child(2)
-			width: 100%
-			height: 100%
-			opacity: 0.9
-			padding-top: 10px
-			pointer-events: none
-			transform: scale(0.9)
-			filter: blur(13px) brightness(95%) saturate(2)
-	
-	.hidden 
-		display: none
+    div 
+      position: absolute
+    
+    div:nth-child(2)
+      width: 100%
+      height: 100%
+      opacity: 0.9
+      padding-top: 10px
+      pointer-events: none
+      filter: blur(13px) brightness(95%) saturate(2)
+  
+  .hidden 
+    display: none
 </style>

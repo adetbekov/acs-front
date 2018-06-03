@@ -45,7 +45,11 @@ export default {
 
   .center
     position: absolute
-    left: 50%
+    left: 0
+    right: 0
+    
+    *
+      margin: auto
   
   *, a
     color: $color-text-gray

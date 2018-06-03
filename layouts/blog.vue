@@ -16,15 +16,11 @@ export default {
 </script>
 
 <style lang="sass">
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400')
+
 .blog-layout
+  font-family: 'Roboto', sans-serif
   color: #2c3e50
   background-color: #ffffff
   padding: 8px
-
-#header
-  width: 100%
-  z-index: 10
-  display: flex
-  align-items: center
-  justify-content: space-between
 </style>

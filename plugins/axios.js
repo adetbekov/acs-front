@@ -7,6 +7,9 @@ export default function({ store, $axios, redirect }) {
       store.dispatch("auth/remove")
       location.reload()
     }
+    if (error.code === 400) {
+      redirect("/400")
+    }
   })
 
   $axios.interceptors.request.use(request => {
