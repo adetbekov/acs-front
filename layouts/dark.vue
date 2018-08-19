@@ -1,5 +1,5 @@
 <template lang="jade">
-.dark-layout
+.dark-layout(v-cloak)
 	el-container
 		Navbar(color="dark")
 			Locale(slot="right")
@@ -26,4 +26,7 @@ export default {
     color: $color-text-white
   
   padding: 8px
+
+[v-cloak]
+  display: none !important
 </style>

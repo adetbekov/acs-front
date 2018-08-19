@@ -28,15 +28,15 @@
   el-container.container
     el-main
       el-row(:gutter="30")
-        el-col(:span="18", :xs="{span: 24, offset: 0}")
+        el-col(:span="18", :xs="{span: 24}", :sm="{span: 16}", :md="{span: 18}")
           h6 {{ $t("last") }}:
           PostsListLoader(v-if="this.placeholder_posts" class="post--list--loader")
           ul(class="headlines")
             li(v-for="p in filtered_posts")
               p {{ mom(p.created) }}
-              nuxt-link(:to="{ name: 'post', params: { id: p.id } }") {{ p.title }}
+              nuxt-link(:to="localePath({ name: 'blog-post', params: { post: p.title_slug } })") {{ p.title }}
               
-        el-col(:span="6", :xs="{span: 24, offset: 0}")
+        el-col(:span="6", :xs="{span: 24}", :sm="{span: 8}", :md="{span: 6}")
           .selector(data-margin-top="40")
             div(class="search")
               div
@@ -336,4 +336,17 @@ small
 
 h6
   margin: 0
+
+@include screen(xs)
+  .headlines p 
+    font-size: 12px
+    margin-bottom: 6px
+  
+  .headlines li
+    display: block 
+    margin-bottom: 40px
+  
+  .top
+    margin-top: 35px
+
 </style>

@@ -1,15 +1,21 @@
 <script>
 import Vue from "vue/dist/vue.js"
 import TextExpand from "~/components/additional/TextExpand"
+import BlogHeader from "~/components/blog/BlogHeader"
 
 export default {
   components: {
-    TextExpand
+    TextExpand,
+    BlogHeader
   },
   props: {
     template: {
       type: String,
       default: "<div></div>"
+    },
+    arguments: {
+      type: Array,
+      default: null
     }
   },
   data() {
@@ -30,6 +36,9 @@ export default {
         }
       }
     }
+  },
+  mounted() {
+    console.log(this)
   },
   render(h) {
     "use strict"
