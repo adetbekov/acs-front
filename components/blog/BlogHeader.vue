@@ -4,10 +4,10 @@
       <div class="container">
         <div class="row">
           <div :class="containerStyle" class="py-3">
-            <h1 :style="titleStyle(1)" class="t hidden-sm-down m-0">{{ title }}</h1>
-            <h2 :style="titleStyle(2)" class="t hidden-md-up hidden-xs-down m-0">{{ title }}</h2>
-            <h3 :style="titleStyle(3)" class="t hidden-sm-up m-0">{{ title }}</h3>
-            <p class="t m-0 p-0">{{ moment(created).format("MMM D, YYYY HH:MM") }}</p>
+            <h1 :style="titleStyle(1)" class="t m-0">{{ title }}</h1>
+            <h2 :style="titleStyle(2)" class="t m-0">{{ title }}</h2>
+            <h3 :style="titleStyle(3)" class="t m-0">{{ title }}</h3>
+            <p class="t m-0 p-0">{{ getTime(created) }}</p>
           </div>
         </div>
       </div>
@@ -17,6 +17,7 @@
 
 <script>
 import { TimelineLite, Power3, Elastic } from "gsap"
+import moment from "moment"
 
 export default {
   props: {
@@ -59,13 +60,45 @@ export default {
     getBackground() {
       return this.post.image_url
         ? { "background-image": "url(" + this.post.image_url + ")" }
-        : "red"
+        : "black"
     },
     getColor() {
       return { color: this.color }
     },
     getStyles() {
-      return [[0, null, null, ["mt-5"], [45, 45, 45]]]
+      return [
+        [0, null, null, ["mt-5"], [45, 45, 45]],
+        [1, null, null, ["col-12", "text-center", "mt-3"], [55, 50, 45]],
+        [
+          2,
+          ["hf", "bg"],
+          this.getBackground,
+          ["col-12", "text-center"],
+          [65, 60, 55]
+        ],
+        [3, ["hf", "bg"], this.getBackground, ["col-6"], [55, 45, 40]],
+        [
+          4,
+          ["hh", "bg"],
+          this.getBackground,
+          ["col-12", "text-center"],
+          [60, 50, 45]
+        ],
+        [5, ["hh", "bg"], this.getBackground, ["col-6"], [45, 35, 35]],
+        [
+          6,
+          ["hf", "bg", "bottom", "pb-md-3"],
+          this.getBackground,
+          ["col-12"],
+          [45, 35, 35]
+        ][
+          (7,
+          ["hh", "bg", "bottom", "pb-md-3"],
+          this.getBackground,
+          ["col-12"],
+          [45, 35, 35])
+        ]
+      ]
     },
     headerClass() {
       return this.getStyles[this.template][1]
@@ -81,6 +114,11 @@ export default {
     this.animation(this.getStyles[this.template][2])
   },
   methods: {
+    getTime(created) {
+      return moment(created)
+        .locale(this.$i18n.locale)
+        .format("MMM D, YYYY HH:MM")
+    },
     titleStyle(h) {
       return { "font-size": this.getStyles[this.template][4][h - 1] + "px" }
     },
@@ -168,5 +206,28 @@ h2,
 h3 {
   position: inherit;
   z-index: 2;
+  display: none;
 }
+.t {
+  margin: 0;
+}
+</style>
+
+<style lang="sass" scoped>
+@include screen(xs)
+  h3
+    display: block
+
+@include screen(sm)
+  h2
+    display: block
+
+@include screen(md)
+  h1
+    display: block
+  
+@include screen(lg)
+  h1
+    display: block
+
 </style>
