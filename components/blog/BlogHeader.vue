@@ -57,45 +57,15 @@ export default {
       return this.post.created
     },
     getBackground() {
-      return { "background-image": "url(" + this.post.image_url + ")" }
+      return this.post.image_url
+        ? { "background-image": "url(" + this.post.image_url + ")" }
+        : "red"
     },
     getColor() {
       return { color: this.color }
     },
     getStyles() {
-      return [
-        [0, null, null, ["mt-5"], [45, 45, 45]],
-        [1, null, null, ["col-12", "text-center", "mt-3"], [55, 50, 45]],
-        [
-          2,
-          ["hf", "bg"],
-          this.getBackground,
-          ["col-12", "text-center"],
-          [65, 60, 55]
-        ],
-        [3, ["hf", "bg"], this.getBackground, ["col-6"], [55, 45, 40]],
-        [
-          4,
-          ["hh", "bg"],
-          this.getBackground,
-          ["col-12", "text-center"],
-          [60, 50, 45]
-        ],
-        [5, ["hh", "bg"], this.getBackground, ["col-6"], [45, 35, 35]],
-        [
-          6,
-          ["hf", "bg", "bottom", "pb-md-3"],
-          this.getBackground,
-          ["col-12"],
-          [45, 35, 35]
-        ][
-          (7,
-          ["hh", "bg", "bottom", "pb-md-3"],
-          this.getBackground,
-          ["col-12"],
-          [45, 35, 35])
-        ]
-      ]
+      return [[0, null, null, ["mt-5"], [45, 45, 45]]]
     },
     headerClass() {
       return this.getStyles[this.template][1]

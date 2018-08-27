@@ -2,7 +2,8 @@
   BlurShadow
     .logo
       img(:src="getLogoImage", :alt="getLogoAlt", :height="getLogoHeight")
-      img(:src="getLogoText", :alt="getLogoAlt+'-text'", :height="getLogoHeight", class="hidden-xs-only")
+      template(v-if="getLogoText")
+        img(:src="getLogoText", :alt="getLogoAlt+'-text'", :height="getLogoHeight", class="hidden-xs-only")
 </template>
 
 <script>
@@ -33,6 +34,12 @@ export default {
         alt: "WebCampus",
         height: 30,
         url: "/webcampus"
+      },
+      bcs: {
+        img: "bcs-logo.svg",
+        alt: "BCS",
+        height: 60,
+        url: "/"
       }
     }
   }),
@@ -44,7 +51,11 @@ export default {
       return require("~/assets/images/" + this.l.img)
     },
     getLogoText() {
-      return require("~/assets/images/" + this.l.text)
+      try {
+        return require("~/assets/images/" + this.l.text)
+      } catch (err) {
+        return false
+      }
     },
     getLogoAlt() {
       return this.l.alt
