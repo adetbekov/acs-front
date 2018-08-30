@@ -25,10 +25,6 @@ export default {
       type: String,
       default: null
     },
-    post: {
-      type: Object,
-      required: true
-    },
     template: {
       type: Number,
       default: 0
@@ -51,6 +47,9 @@ export default {
     }
   },
   computed: {
+    ...mapGetters({
+      post: "blog/getPost"
+    }), 
     title() {
       return this.post.title
     },
@@ -162,21 +161,21 @@ export default {
 }
 
 .hf {
-  min-height: calc(100vh - 75px);
+  min-height: calc(100vh - 85px);
 }
 
 .hf[fulltop="true"] {
   min-height: 100vh;
-  margin-top: -75px;
+  margin-top: -85px;
 }
 
 .hh {
-  min-height: calc(60vh - 75px);
+  min-height: calc(60vh - 85px);
 }
 
 .hh[fulltop="true"] {
   min-height: 60vh;
-  margin-top: -75px;
+  margin-top: -85px;
 }
 
 .bg[overlay="true"]:after {

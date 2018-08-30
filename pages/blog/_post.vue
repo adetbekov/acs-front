@@ -13,11 +13,14 @@ import Dynamic from "~/components/additional/Dynamic"
 
 export default {
   layout: "blog",
-  async asyncData({ app, params }) {
-    let { data } = await app.$axios.get(`blog/${params.post}/`)
-    return {
-      post: data
-    }
+  // async asyncData({ app, params }) {
+  //   let { data } = await app.$axios.get(`blog/${params.post}/`)
+  //   return {
+  //     post: data
+  //   }
+  // },
+  async asyncData({ dispatch, params }) {
+    await dispatch('blog/set', params.post)
   },
   components: {
     Dynamic
