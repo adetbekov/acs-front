@@ -7,13 +7,13 @@ export const getters = {
 }
 
 export const mutations = {
-  UPDATE: (state, [post]) => {
+  UPDATE: (state, post) => {
     state.post = post
   }
 }
 
 export const actions = {
-  set: (state, [post]) => {
-    // should be done
+  set: async ({ commit }, post) => {
+    commit("UPDATE", post)
   }
 }

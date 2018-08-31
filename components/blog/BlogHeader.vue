@@ -1,5 +1,5 @@
 <template>
-  <div class="blog-header">
+  <div v-show="post" class="blog-header">
     <div :id="id" :class="headerClass" :style="headerStyle" :fullTop="fullTop" :overlay="overlay" :overlayTop="overlayTop">
       <div class="container">
         <div class="row">
@@ -17,6 +17,7 @@
 
 <script>
 import { TimelineLite, Power3, Elastic } from "gsap"
+import { mapGetters, mapState } from "vuex"
 import moment from "moment"
 
 export default {
@@ -49,7 +50,7 @@ export default {
   computed: {
     ...mapGetters({
       post: "blog/getPost"
-    }), 
+    }),
     title() {
       return this.post.title
     },
