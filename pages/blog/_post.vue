@@ -1,6 +1,7 @@
 <template lang="jade">
   el-container
-    el-main(v-show="post")
+    p {{post}}
+    el-main(v-if="post")
       no-ssr(:placeholder="post.content")
         Dynamic(:template="post.content" v-cloak)
       br
@@ -10,7 +11,7 @@
 
 <script>
 import Dynamic from "~/components/additional/Dynamic"
-import { mapGetters } from "vuex"
+import { mapState } from "vuex"
 
 export default {
   layout: "blog",
@@ -28,8 +29,8 @@ export default {
     Dynamic
   },
   computed: {
-    ...mapGetters({
-      post: "blog/getPost"
+    ...mapState({
+      post: "blog/post"
     })
   }
 }
