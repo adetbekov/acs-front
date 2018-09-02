@@ -1,5 +1,5 @@
 <template>
-  <div v-if="post" class="blog-header">
+  <div class="blog-header">
     <div :id="id" :class="headerClass" :style="headerStyle" :fullTop="fullTop" :overlay="overlay" :overlayTop="overlayTop">
       <div class="container">
         <div class="row">
@@ -17,7 +17,7 @@
 
 <script>
 import { TimelineLite, Power3, Elastic } from "gsap"
-import { mapState } from "vuex"
+import { mapGetters } from "vuex"
 import moment from "moment"
 
 export default {
@@ -48,8 +48,8 @@ export default {
     }
   },
   computed: {
-    ...mapState({
-      post: "blog/post"
+    ...mapGetters({
+      post: "blog/getPost"
     }),
     title() {
       return this.post.title
@@ -58,9 +58,11 @@ export default {
       return this.post.created
     },
     getBackground() {
-      return this.post.image_url
-        ? { "background-image": "url(" + this.post.image_url + ")" }
-        : "black"
+      return {
+        "background-image": this.post.image_url
+          ? "url(" + this.post.image_url + ")"
+          : "black"
+      }
     },
     getColor() {
       return { color: this.color }
@@ -91,7 +93,8 @@ export default {
           this.getBackground,
           ["col-12"],
           [45, 35, 35]
-        ][
+        ],
+        [
           (7,
           ["hh", "bg", "bottom", "pb-md-3"],
           this.getBackground,
