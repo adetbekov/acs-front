@@ -210,6 +210,7 @@ h3 {
   position: inherit;
   z-index: 2;
   display: none;
+  font-size: 50px;
 }
 .t {
   margin: 0;
