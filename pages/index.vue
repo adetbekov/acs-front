@@ -18,12 +18,20 @@
 <template lang="jade">
   el-container
     el-main.main
-      el-row
-        el-col(:span="12", :offset="6", :xs="{span: 24, offset: 0}")
+      el-row.main-row
+        el-col(:span="9", :offset="0", :xs="{span: 24, offset: 0}")
           h1 {{ $t("hello") }}
           p
             no-ssr(:placeholder="$t('description')")
               Dynamic(:template="$t('description')")
+        el-col(:span="5", :offset="2", :xs="{span: 24, offset: 0}")
+          el-card(class="box-card")
+            h1 Hello
+            p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vitae malesuada ex, eu tincidunt turpis.
+        el-col(:span="5", :offset="1", :xs="{span: 24, offset: 0}")
+          el-card(class="box-card")
+            h1 Hello
+            p Morbi vitae malesuada ex, eu tincidunt turpis. Donec cursus tristique erat quis pulvinar.
 </template>
 
 <script>
@@ -47,6 +55,11 @@ export default {
   justify-content: space-around
   align-items: center
 
+.main-row
+  display: flex
+  flex-direction: row
+  align-items: center
+
 h1, p
   font-family: 'Roboto Mono', monospace
   font-weight: 300
@@ -58,4 +71,8 @@ h1
 
 p
   line-height: 1.7
+
+.box-card
+  h1, p
+    color: $color-text-dark
 </style>

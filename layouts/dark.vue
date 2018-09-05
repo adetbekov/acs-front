@@ -27,6 +27,7 @@ export default {
   
   padding: 8px
 
+
 [v-cloak]
   display: none !important
 </style>
