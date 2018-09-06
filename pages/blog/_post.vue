@@ -51,6 +51,7 @@ export default {
   vertical-align: middle
   cursor: pointer
   user-select: none
+  width: 100%
 
 .tags label, .tags a:hover
   background-color: #ebebeb
