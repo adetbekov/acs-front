@@ -46,7 +46,8 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-@import url('https://fonts.googleapis.com/css?family=Roboto+Mono')
+@import "assets/styles/fonts/trade-gothic-lt.sass"
+@import "assets/styles/fonts/bebas-neue.sass"
 
 .main
   min-height: calc( 100vh - 60px - 16px )
@@ -60,11 +61,16 @@ export default {
   flex-direction: row
   align-items: center
 
-h1, p
-  font-family: 'Roboto Mono', monospace
-  font-weight: 300
+h1
+  font-family: 'Trade Gothic LT Bold Condensed', 'Bebas Neue Bold', 'Lato Regular', Helvetica, sans-serif
   font-size: 15px
   vertical-align: baseline
+
+// p
+//   font-family: 'Bebas Neue Bold', 'Roboto Mono', monospace
+//   font-weight: 300
+//   font-size: 15px
+//   vertical-align: baseline
 
 h1
   font-size: 24px
