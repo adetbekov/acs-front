@@ -46,8 +46,8 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-@import "assets/styles/fonts/trade-gothic-lt.sass"
-@import "assets/styles/fonts/bebas-neue.sass"
+// @import "assets/styles/fonts/trade-gothic-lt.sass"
+// @import "assets/styles/fonts/bebas-neue.sass"
 
 .main
   min-height: calc( 100vh - 60px - 16px )
@@ -62,7 +62,8 @@ export default {
   align-items: center
 
 h1
-  font-family: 'Trade Gothic LT Bold Condensed', 'Bebas Neue Bold', 'Lato Regular', Helvetica, sans-serif
+  //'Trade Gothic LT Bold Condensed', 'Bebas Neue Bold', 'Lato Regular', 
+  font-family: Helvetica, sans-serif
   font-size: 15px
   vertical-align: baseline
 
