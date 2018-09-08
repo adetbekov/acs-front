@@ -1,7 +1,7 @@
 <i18n>
 {
 	"en": {
-    "hello": "Hi",
+    "hello": "Hello",
     "description": "I'm Yeldos, a Fullstack web-developer from Almaty. I'm looking for beauty in everything, in code, animation, interactive and generative design. Welcome to Adetbekov Creative Studio!"
 	},
 	"ru": {
@@ -20,7 +20,7 @@
     el-main.main
       el-row.main-row
         el-col(:span="9", :offset="0", :xs="{span: 24, offset: 0}")
-          h1 {{ $t("hello") }}
+          h1 {{ $t("hello") | uppercase }}
           p
             no-ssr(:placeholder="$t('description')")
               Dynamic(:template="$t('description')")
@@ -36,18 +36,26 @@
 
 <script>
 import Dynamic from "~/components/additional/Dynamic"
+import _ from "lodash"
 
 export default {
   layout: "dark",
   components: {
     Dynamic
+  },
+  filters: {
+    uppercase: value => {
+      return _.toUpper(value)
+    }
   }
 }
 </script>
 
 <style lang="sass" scoped>
-// @import "assets/styles/fonts/trade-gothic-lt.sass"
+@import "assets/styles/fonts/trade-gothic-lt.sass"
 // @import "assets/styles/fonts/bebas-neue.sass"
+@import "assets/styles/fonts/proxima-nova.sass"
+
 
 .main
   min-height: calc( 100vh - 60px - 16px )
@@ -62,10 +70,11 @@ export default {
   align-items: center
 
 h1
-  //'Trade Gothic LT Bold Condensed', 'Bebas Neue Bold', 'Lato Regular', 
-  font-family: Helvetica, sans-serif
-  font-size: 15px
+  font-family: 'Proxima Nova Bold'
+  font-size: 20px
+  font-weight: bold
   vertical-align: baseline
+  letter-spacing: 4px
 
 // p
 //   font-family: 'Bebas Neue Bold', 'Roboto Mono', monospace
@@ -75,9 +84,6 @@ h1
 
 h1
   font-size: 24px
-
-p
-  line-height: 1.7
 
 .box-card
   h1, p
