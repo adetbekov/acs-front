@@ -1,9 +1,10 @@
 <template lang="jade">
-  BlurShadow
-    .logo
-      img(:src="getLogoImage", :alt="getLogoAlt", :height="getLogoHeight")
-      template(v-if="getLogoText")
-        img(:src="getLogoText", :alt="getLogoAlt+'-text'", :height="getLogoHeight", class="hidden-xs-only")
+  //- BlurShadow
+  //-   .logo
+  h1 Adetbekov
+      //- img(:src="getLogoImage", :alt="getLogoAlt", :height="getLogoHeight")
+      //- template(v-if="getLogoText")
+      //-   img(:src="getLogoText", :alt="getLogoAlt+'-text'", :height="getLogoHeight", class="hidden-xs-only")
 </template>
 
 <script>
@@ -71,11 +72,21 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-	.logo 
-		display: flex
-		justify-content: start
-		align-items: center
+@import "~/assets/styles/fonts/proxima-nova.sass"
 
-		img:first-child 
-			margin-right: 5px
+.logo 
+  display: flex
+  justify-content: start
+  align-items: center
+
+img:first-child 
+  margin-right: 5px
+
+h1
+  // font-family: 'Proxima Nova Bold'
+  font-size: 16px
+  font-weight: bold
+  vertical-align: baseline
+  letter-spacing: 2px
+  
 </style>
