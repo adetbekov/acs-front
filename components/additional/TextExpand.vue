@@ -2,7 +2,7 @@
   span(@click="collapsed=!collapsed")
     transition(name="fade")
       span(v-if="collapsed", class="collapse") {{ short }}
-      span(v-else, class="collapsed", )
+      span(v-else, class="collapsed")
         slot
 </template>
 
@@ -37,8 +37,10 @@ span
     filter: brightness(120%)
 
 .collapsed
+  padding: 9px 0 1px
   border-bottom: 1.45px dotted
-  border-color: inherit 25%
+  border-color: gray
+  border-opacity: 0.9
   // background-image: linear-gradient(to right, #95a5a6 50%, transparent 50%)
   // background-position: 0 1.25em
   // background-repeat: repeat-x

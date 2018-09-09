@@ -21,6 +21,7 @@
       el-row.main-row
         el-col(:span="9", :offset="0", :xs="{span: 24, offset: 0}")
           h1 {{ $t("hello") | uppercase }}
+          img(src="~/assets/images/waves.svg", width="100")
           p
             no-ssr(:placeholder="$t('description')")
               Dynamic(:template="$t('description')")
@@ -31,7 +32,8 @@
         el-col(:span="5", :offset="1", :xs="{span: 24, offset: 0}")
           el-card(class="box-card")
             h1 Hello
-            p Morbi vitae malesuada ex, eu tincidunt turpis. Donec cursus tristique erat quis pulvinar.
+            p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vitae malesuada ex, eu tincidunt turpis.
+    img(src="~/assets/images/solman.svg", width="700", id="solman")
 </template>
 
 <script>
@@ -88,4 +90,11 @@ h1
 .box-card
   h1, p
     color: $color-text-dark
+
+#solman
+  opacity: 0.02
+  transform: rotate(-20deg)
+  position: absolute
+  top: -320px
+  left: 0
 </style>
