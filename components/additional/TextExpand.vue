@@ -2,7 +2,7 @@
   span(@click="collapsed=!collapsed")
     transition(name="fade")
       span(v-if="collapsed", class="collapse") {{ short }}
-      span(v-else, class="collapsed")
+      span(v-else, class="collapsed", )
         slot
 </template>
 
