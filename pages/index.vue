@@ -2,15 +2,21 @@
 {
 	"en": {
     "hello": "Hello",
-    "description": "I'm Yeldos, a Fullstack web-developer from Almaty. I'm looking for beauty in everything, in code, animation, interactive and generative design. Welcome to Adetbekov Creative Studio!"
+    "description": "I'm Yeldos, a Fullstack web-developer from Almaty. I'm looking for beauty in everything, in code, animation, interactive and generative design. Welcome to Adetbekov Creative Studio!",
+    "rightnow": "Right Now",
+    "blog": "Blog"
 	},
 	"ru": {
     "hello": "Привет",
-    "description": "Я - Елдос, <TextExpand short='Fullstack'>Full Stack веб-разработчик – это квалифицированный специалист, который способен принимать активное участие во всех этапах разработки веб-приложений, начиная от серверной логики и ее реализации с помощью различных технологий и фреймворков, и заканчивая клиентским кодом, работающим непосредственно в браузере.</TextExpand> веб-разработчик из Алматы. Ищу красоту во всём, в коде, анимации, интерактивности и генеративном дизайне. Добро пожаловать в Adetbekov Creative Studio!\n<nuxt-link to='webcampus'>Webcampus</nuxt-link>"
+    "description": "Я - Елдос, <TextExpand short='Fullstack'>Full Stack веб-разработчик – это квалифицированный специалист, который способен принимать активное участие во всех этапах разработки веб-приложений, начиная от серверной логики и ее реализации с помощью различных технологий и фреймворков, и заканчивая клиентским кодом, работающим непосредственно в браузере.</TextExpand> веб-разработчик из Алматы. Ищу красоту во всём, в коде, анимации, интерактивности и генеративном дизайне. Добро пожаловать в Adetbekov Creative Studio!\n<nuxt-link to='webcampus'>Webcampus</nuxt-link>",
+    "rightnow": "Прямо сейчас",
+    "blog": "Блог"
 	},
 	"kz": {
     "hello": "Sälem",
-    "description": "Meniń esimim Eldos. Men - Almatınıń Fullstack web-damıtıwcısımın. Barlık jerde sulwlıktı izdeymin, kodta, änimecinde, interektevte jäne jeneretevti diyzaynda. Adetbekov Creative Studio jobasına koc keldińiz!"
+    "description": "Meniń esimim Eldos. Men - Almatınıń Fullstack web-damıtıwcısımın. Barlık jerde sulwlıktı izdeymin, kodta, änimecinde, interektevte jäne jeneretevti diyzaynda. Adetbekov Creative Studio jobasına koc keldińiz!",
+    "rightnow": "Däl käzir",
+    "blog": "Blog"
 	}
 }
 </i18n>
@@ -27,11 +33,11 @@
               Dynamic(:template="$t('description')")
         el-col(:span="5", :offset="2", :xs="{span: 24, offset: 0}")
           el-card(class="box-card")
-            h1 Hello
+            h2 {{ $t("rightnow") }}
             p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vitae malesuada ex, eu tincidunt turpis.
         el-col(:span="5", :offset="1", :xs="{span: 24, offset: 0}")
           el-card(class="box-card")
-            h1 Hello
+            h2 Hello
             p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vitae malesuada ex, eu tincidunt turpis.
     img(src="~/assets/images/solman.svg", width="700", id="solman")
 </template>
@@ -65,6 +71,7 @@ export default {
   flex-direction: column
   justify-content: space-around
   align-items: center
+  z-index: 1
 
 .main-row
   display: flex
@@ -73,7 +80,6 @@ export default {
 
 h1
   font-family: 'Proxima Nova Bold'
-  font-size: 20px
   font-weight: bold
   vertical-align: baseline
   letter-spacing: 4px
@@ -88,8 +94,18 @@ h1
   font-size: 24px
 
 .box-card
-  h1, p
+  h2, p
     color: $color-text-dark
+
+  h2
+    font-family: 'Proxima Nova Bold'
+    font-weight: bold
+    vertical-align: baseline
+    letter-spacing: 1px
+    font-size: 20px
+  
+  p
+    margin-top: -5px
 
 #solman
   opacity: 0.02
