@@ -2,7 +2,7 @@
 {
 	"en": {
     "hello": "Hello",
-    "description": "I'm Yeldos, a Fullstack web-developer from Almaty. I'm looking for beauty in everything, in code, animation, interactive and generative design. Welcome to Adetbekov Creative Studio!",
+    "description": "I'm Yeldos, a <TextExpand short='Fullstack'>Full Stack веб-разработчик – это квалифицированный специалист, который способен принимать активное участие во всех этапах разработки веб-приложений, начиная от серверной логики и ее реализации с помощью различных технологий и фреймворков, и заканчивая клиентским кодом, работающим непосредственно в браузере.</TextExpand> web-developer from Almaty. I'm looking for beauty in everything, in code, animation, interactive and generative design. Welcome to Adetbekov Creative Studio!",
     "rightnow": "Right Now",
     "blog": "Blog"
 	},
@@ -14,9 +14,9 @@
 	},
 	"kz": {
     "hello": "Sälem",
-    "description": "Meniń esimim Eldos. Men - Almatınıń Fullstack web-damıtıwcısımın. Barlık jerde sulwlıktı izdeymin, kodta, änimecinde, interektevte jäne jeneretevti diyzaynda. Adetbekov Creative Studio jobasına koc keldińiz!",
+    "description": "Meniń esimim Eldos. Men - Almatınıń <TextExpand short='Fullstack'>Full Stack веб-разработчик – это квалифицированный специалист, который способен принимать активное участие во всех этапах разработки веб-приложений, начиная от серверной логики и ее реализации с помощью различных технологий и фреймворков, и заканчивая клиентским кодом, работающим непосредственно в браузере.</TextExpand> web-damıtıwcısımın. Barlık jerde sulwlıktı izdeymin, kodta, änimecinde, interektevte jäne jeneretevti diyzaynda. Adetbekov Creative Studio jobasına koc keldińiz!",
     "rightnow": "Däl käzir",
-    "blog": "Blog"
+    "blog": "Bülek"
 	}
 }
 </i18n>
@@ -32,28 +32,45 @@
             no-ssr(:placeholder="$t('description')")
               Dynamic(:template="$t('description')")
         el-col(:span="5", :offset="2", :xs="{span: 24, offset: 0}")
-          el-card(class="box-card")
-            h2 {{ $t("rightnow") }}
-            p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vitae malesuada ex, eu tincidunt turpis.
+          el-card(class="box-card rightnow")
+            div.header
+              h2 {{ $t("rightnow") }}
+              span {{ getRightnowTime }}
+            p {{ rightnow[0].content }}
+            span {{ rightnow[0].mood }}
         el-col(:span="5", :offset="1", :xs="{span: 24, offset: 0}")
           el-card(class="box-card")
-            h2 Hello
+            h2 {{ $t("blog") }}
             p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vitae malesuada ex, eu tincidunt turpis.
     img(src="~/assets/images/solman.svg", width="700", id="solman")
 </template>
 
 <script>
-import Dynamic from "~/components/additional/Dynamic"
 import _ from "lodash"
+import moment from "moment"
+import Dynamic from "~/components/additional/Dynamic"
 
 export default {
   layout: "dark",
   components: {
     Dynamic
   },
+  async asyncData({ app }) {
+    let [rightnowRes] = await Promise.all([app.$axios.get("rightnow/all")])
+    return {
+      rightnow: rightnowRes.data
+    }
+  },
   filters: {
     uppercase: value => {
       return _.toUpper(value)
+    }
+  },
+  computed: {
+    getRightnowTime() {
+      return moment(this.rightnow[0].created)
+        .locale(this.$i18n.locale)
+        .format("MMM D")
     }
   }
 }
@@ -108,9 +125,22 @@ h1
     margin-top: -5px
 
 #solman
-  opacity: 0.02
+  opacity: 0.03
   transform: rotate(-20deg)
   position: absolute
   top: -320px
   left: 0
+
+.rightnow
+  .header
+    display: flex
+    justify-content: space-between
+    align-items: center
+    margin-bottom: 16.6px
+
+    h2
+      margin: 0
+
+  span
+    color: $color-text-gray
 </style>
