@@ -4,19 +4,25 @@
     "hello": "Hello",
     "description": "I'm Yeldos, a <TextExpand short='Fullstack'>Full Stack веб-разработчик – это квалифицированный специалист, который способен принимать активное участие во всех этапах разработки веб-приложений, начиная от серверной логики и ее реализации с помощью различных технологий и фреймворков, и заканчивая клиентским кодом, работающим непосредственно в браузере.</TextExpand> web-developer from Almaty. I'm looking for beauty in everything, in code, animation, interactive and generative design. Welcome to Adetbekov Creative Studio!",
     "rightnow": "Right Now",
-    "blog": "Blog"
+    "blog": "Blog",
+    "rightnow-empty-content": "Oops, there is no any notes...",
+    "rightnow-empty-mood": "🤭 shame"
 	},
 	"ru": {
     "hello": "Привет",
     "description": "Я - Елдос, <TextExpand short='Fullstack'>Full Stack веб-разработчик – это квалифицированный специалист, который способен принимать активное участие во всех этапах разработки веб-приложений, начиная от серверной логики и ее реализации с помощью различных технологий и фреймворков, и заканчивая клиентским кодом, работающим непосредственно в браузере.</TextExpand> веб-разработчик из Алматы. Ищу красоту во всём, в коде, анимации, интерактивности и генеративном дизайне. Добро пожаловать в Adetbekov Creative Studio!\n<nuxt-link to='webcampus'>Webcampus</nuxt-link>",
     "rightnow": "Прямо сейчас",
-    "blog": "Блог"
+    "blog": "Блог",
+    "rightnow-empty-content": "Ой, тут пока нет записей...",
+    "rightnow-empty-mood": "🤭 стыд"
 	},
 	"kz": {
     "hello": "Sälem",
     "description": "Meniń esimim Eldos. Men - Almatınıń <TextExpand short='Fullstack'>Full Stack веб-разработчик – это квалифицированный специалист, который способен принимать активное участие во всех этапах разработки веб-приложений, начиная от серверной логики и ее реализации с помощью различных технологий и фреймворков, и заканчивая клиентским кодом, работающим непосредственно в браузере.</TextExpand> web-damıtıwcısımın. Barlık jerde sulwlıktı izdeymin, kodta, änimecinde, interektevte jäne jeneretevti diyzaynda. Adetbekov Creative Studio jobasına koc keldińiz!",
     "rightnow": "Däl käzir",
-    "blog": "Bülek"
+    "blog": "Bülek",
+    "rightnow-empty-content": "Op, äzirge mına arada jazıwlar jok...",
+    "rightnow-empty-mood": "🤭 ұят"
 	}
 }
 </i18n>
@@ -36,8 +42,8 @@
             div.header
               h2 {{ $t("rightnow") }}
               span {{ getRightnowTime }}
-            p {{ rightnow[0].content }}
-            span {{ rightnow[0].mood }}
+            p {{ getRightnowContent }}
+            span {{ getRightnowMood }}
         el-col(:span="5", :offset="1", :xs="{span: 24, offset: 0}")
           el-card(class="box-card")
             h2 {{ $t("blog") }}
@@ -67,10 +73,31 @@ export default {
     }
   },
   computed: {
+    getLastRightnow() {
+      return _.filter(this.rightnow, { locale_code: this.$i18n.locale })[0]
+    },
     getRightnowTime() {
-      return moment(this.rightnow[0].created)
-        .locale(this.$i18n.locale)
-        .format("MMM D")
+      try {
+        return moment(this.getLastRightnow.created)
+          .locale(this.$i18n.locale)
+          .format("MMM D")
+      } catch (e) {
+        return ""
+      }
+    },
+    getRightnowContent() {
+      try {
+        return this.getLastRightnow.content
+      } catch (e) {
+        return this.$t("rightnow-empty-content")
+      }
+    },
+    getRightnowMood() {
+      try {
+        return this.getLastRightnow.mood
+      } catch (e) {
+        return this.$t("rightnow-empty-mood")
+      }
     }
   }
 }
