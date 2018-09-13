@@ -30,8 +30,6 @@ export default {
   justify-content: space-between
   font-size: 16px
   position: relative
-  font-weight: bold
-  letter-spacing: 2px
 
   *
     display: flex
