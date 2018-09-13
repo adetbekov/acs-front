@@ -1,10 +1,10 @@
 <template lang="jade">
-  //- BlurShadow
-  //-   .logo
-  h1 Adetbekov
-      //- img(:src="getLogoImage", :alt="getLogoAlt", :height="getLogoHeight")
-      //- template(v-if="getLogoText")
-      //-   img(:src="getLogoText", :alt="getLogoAlt+'-text'", :height="getLogoHeight", class="hidden-xs-only")
+  BlurShadow
+    .logo
+      img(:src="getLogoImage", :alt="getLogoAlt", :height="getLogoHeight")
+      template(v-if="getLogoText")
+        img(:src="getLogoText", :alt="getLogoAlt+'-text'", :height="getLogoHeight", class="hidden-xs-only")
+      //- h1 Adetbekov
 </template>
 
 <script>
