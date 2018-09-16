@@ -57,7 +57,7 @@
           h1 {{ $t("blog") }}
           h1 {{ $t("about") }}
           h1 {{ $t("portfolio") }}
-    //- img(src="~/assets/images/orda.png", width="350", id="belka")
+    img(src="~/assets/images/solman.svg", width="700", id="solman")
 </template>
 
 <script>
