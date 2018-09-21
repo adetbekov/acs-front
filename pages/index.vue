@@ -6,6 +6,8 @@
     "rightnow": "Right Now",
     "blog": "Blog",
     "about": "About me",
+    "contact": "Contact",
+    "favorites": "Favorites",
     "portfolio": "Portfolio",
     "rightnow-empty-content": "Oops, there is no any notes...",
     "rightnow-empty-mood": "🤭 shame"
@@ -16,6 +18,8 @@
     "rightnow": "Прямо сейчас",
     "blog": "Блог",
     "about": "Обо мне",
+    "contact": "Контакты",
+    "favorites": "Избранное",
     "portfolio": "Портфель",
     "rightnow-empty-content": "Ой, тут пока нет записей...",
     "rightnow-empty-mood": "🤭 стыд"
@@ -26,6 +30,8 @@
     "rightnow": "Däl käzir",
     "blog": "Bülek",
     "about": "Men tuwralı",
+    "contact": "Baylanıs",
+    "favorites": "Tańdawım",
     "portfolio": "Pörtpil",
     "rightnow-empty-content": "Op, äzirge mına arada jazıwlar jok...",
     "rightnow-empty-mood": "🤭 uyat-ay"
@@ -57,6 +63,8 @@
           h1 {{ $t("blog") }}
           h1 {{ $t("about") }}
           h1 {{ $t("portfolio") }}
+          h1 {{ $t("favorites") }}
+          h1 {{ $t("contact") }}
     img(src="~/assets/images/solman.svg", width="700", id="solman")
 </template>
 
