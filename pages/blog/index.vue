@@ -231,7 +231,8 @@ ul
 
   p
     min-width: 100px
-    font-weight: 100
+    color: $color-text-gray
+    font-weight: 300
     margin-right: 1.5rem
     font-size: 1rem
 

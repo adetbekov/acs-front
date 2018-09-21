@@ -23,7 +23,9 @@ export default {
 
 .dark-layout
   background-color: $color-background-dark
-  font-family: "Lato Regular", Helvetica, sans-serif 
+  font-family: "Lato", Helvetica, sans-serif 
+  font-weight: 400
+  padding: 8px
   
   p
     letter-spacing: 1px
@@ -31,8 +33,6 @@ export default {
 
   h1, h2, h3, h4, h5, h6, p, span, li, a
     color: $color-text-white
-  
-  padding: 8px
 
 
 [v-cloak]

@@ -16,10 +16,11 @@ export default {
 </script>
 
 <style lang="sass">
-@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400')
+@import "assets/styles/fonts/lato.sass"
 
 .blog-layout
-  font-family: 'Roboto', sans-serif
+  font-family: "Lato", Helvetica, sans-serif 
+  font-weight: 400
   color: #2c3e50
   background-color: #ffffff
   padding: 8px
