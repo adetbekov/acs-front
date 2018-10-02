@@ -2,11 +2,13 @@
 import Vue from "vue/dist/vue.js"
 import TextExpand from "~/components/additional/TextExpand"
 import BlogHeader from "~/components/blog/BlogHeader"
+import TextBlock from "~/components/blog/TextBlock"
 
 export default {
   components: {
     TextExpand,
-    BlogHeader
+    BlogHeader,
+    TextBlock
   },
   props: {
     template: {

@@ -40,7 +40,7 @@
 </i18n>
 
 <template lang="jade">
-  el-container
+  el-container.container
     el-main.main
       el-row.main-row
         el-col(:span="10", :offset="0", :xs="{span: 24, offset: 0}")

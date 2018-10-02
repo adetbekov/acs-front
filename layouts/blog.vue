@@ -19,7 +19,7 @@ export default {
 @import "assets/styles/fonts/lato.sass"
 
 .blog-layout
-  font-family: "Lato", Helvetica, sans-serif 
+  font-family: "Lato", Helvetica, sans-serif !important
   font-weight: 400
   color: #2c3e50
   background-color: #ffffff

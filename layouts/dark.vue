@@ -22,6 +22,8 @@ export default {
 @import "assets/styles/fonts/lato.sass"
 
 .dark-layout
+  position: relative
+  overflow: hidden
   background-color: $color-background-dark
   font-family: "Lato", Helvetica, sans-serif 
   font-weight: 400
