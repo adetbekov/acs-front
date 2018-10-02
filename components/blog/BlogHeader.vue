@@ -65,7 +65,7 @@ export default {
       }
     },
     getColor() {
-      return { color: this.color }
+      return { color: `${this.color} !important` }
     },
     getStyles() {
       return [
@@ -120,10 +120,13 @@ export default {
     getTime(created) {
       return moment(created)
         .locale(this.$i18n.locale)
-        .format("MMM D, YYYY HH:MM")
+        .format("MMM D, YYYY")
     },
     titleStyle(h) {
-      return { "font-size": this.getStyles[this.template][4][h - 1] + "px" }
+      return {
+        "font-size": this.getStyles[this.template][4][h - 1] + "px",
+        color: this.color
+      }
     },
     animation(c) {
       let tl = new TimelineLite()
@@ -147,7 +150,7 @@ export default {
   position: relative;
   padding-top: 0px;
   width: 100%;
-  font-family: "BebasNeue";
+  font-family: "Lato";
   z-index: 0;
 }
 
@@ -218,6 +221,16 @@ h3 {
 </style>
 
 <style lang="sass" scoped>
+@import "assets/styles/fonts/proxima-nova.sass"
+
+h1, h2, h3
+  font-family: 'Proxima Nova Bold'
+  font-weight: bold
+  vertical-align: baseline
+  letter-spacing: 4px
+</style>
+
+<style lang="sass" scoped>
 @include screen(xs)
   h3
     display: block
@@ -233,5 +246,17 @@ h3 {
 @include screen(lg)
   h1
     display: block
+
+.mt-5
+  margin-top: ($spacer * 3) !important
+
+.mt-3
+  margin-top: $spacer !important
+
+.text-center
+  text-align: center
+
+p 
+  font-size: 16px
 
 </style>

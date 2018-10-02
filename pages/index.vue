@@ -6,6 +6,8 @@
     "rightnow": "Right Now",
     "blog": "Blog",
     "about": "About me",
+    "contact": "Contact",
+    "favorites": "Favorites",
     "portfolio": "Portfolio",
     "rightnow-empty-content": "Oops, there is no any notes...",
     "rightnow-empty-mood": "🤭 shame"
@@ -16,6 +18,8 @@
     "rightnow": "Прямо сейчас",
     "blog": "Блог",
     "about": "Обо мне",
+    "contact": "Контакты",
+    "favorites": "Избранное",
     "portfolio": "Портфель",
     "rightnow-empty-content": "Ой, тут пока нет записей...",
     "rightnow-empty-mood": "🤭 стыд"
@@ -26,6 +30,8 @@
     "rightnow": "Däl käzir",
     "blog": "Bülek",
     "about": "Men tuwralı",
+    "contact": "Baylanıs",
+    "favorites": "Tańdawım",
     "portfolio": "Pörtpil",
     "rightnow-empty-content": "Op, äzirge mına arada jazıwlar jok...",
     "rightnow-empty-mood": "🤭 uyat-ay"
@@ -34,7 +40,7 @@
 </i18n>
 
 <template lang="jade">
-  el-container
+  el-container.container
     el-main.main
       el-row.main-row
         el-col(:span="10", :offset="0", :xs="{span: 24, offset: 0}")
@@ -54,9 +60,12 @@
             p {{ getRightnowContent }}
             span {{ getRightnowMood }}
         el-col(:span="5", :offset="2", :xs="{span: 24, offset: 0}", class="menu")
-          h1 {{ $t("blog") }}
+          nuxt-link(:to="localePath({ name: 'blog' })")
+            h1 {{ $t("blog") }}
           h1 {{ $t("about") }}
           h1 {{ $t("portfolio") }}
+          h1 {{ $t("favorites") }}
+          h1 {{ $t("contact") }}
     img(src="~/assets/images/solman.svg", width="700", id="solman")
 </template>
 
@@ -117,8 +126,7 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-@import "assets/styles/fonts/trade-gothic-lt.sass"
-// @import "assets/styles/fonts/bebas-neue.sass"
+// @import "assets/styles/fonts/trade-gothic-lt.sass"
 @import "assets/styles/fonts/proxima-nova.sass"
 
 
@@ -165,7 +173,7 @@ h1
     margin-top: -5px
 
 #solman
-  opacity: 0.025
+  opacity: 0.035
   transform: rotate(-20deg)
   position: absolute
   top: -320px
