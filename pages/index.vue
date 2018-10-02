@@ -60,7 +60,8 @@
             p {{ getRightnowContent }}
             span {{ getRightnowMood }}
         el-col(:span="5", :offset="2", :xs="{span: 24, offset: 0}", class="menu")
-          h1 {{ $t("blog") }}
+          nuxt-link(:to="localePath({ name: 'blog' })")
+            h1 {{ $t("blog") }}
           h1 {{ $t("about") }}
           h1 {{ $t("portfolio") }}
           h1 {{ $t("favorites") }}
@@ -125,8 +126,7 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-@import "assets/styles/fonts/trade-gothic-lt.sass"
-// @import "assets/styles/fonts/bebas-neue.sass"
+// @import "assets/styles/fonts/trade-gothic-lt.sass"
 @import "assets/styles/fonts/proxima-nova.sass"
 
 
@@ -173,7 +173,7 @@ h1
     margin-top: -5px
 
 #solman
-  opacity: 0.025
+  opacity: 0.035
   transform: rotate(-20deg)
   position: absolute
   top: -320px

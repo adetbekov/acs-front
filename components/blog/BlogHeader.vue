@@ -218,6 +218,17 @@ h3 {
 </style>
 
 <style lang="sass" scoped>
+@import "assets/styles/fonts/proxima-nova.sass"
+
+h1, h2, h3
+  font-family: 'Proxima Nova Bold'
+  font-weight: bold
+  color: $color-text-black
+  vertical-align: baseline
+  letter-spacing: 4px
+</style>
+
+<style lang="sass" scoped>
 @include screen(xs)
   h3
     display: block
@@ -233,5 +244,14 @@ h3 {
 @include screen(lg)
   h1
     display: block
+
+.mt-5
+  margin-top: ($spacer * 3) !important
+
+.mt-3
+  margin-top: $spacer !important
+
+.text-center
+  text-align: center
 
 </style>
